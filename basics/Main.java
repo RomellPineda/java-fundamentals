@@ -1,11 +1,12 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Main {
   public static void main(String[] args) {
     System.out.println("lab 01");
 
     System.out.println(pluralize("wurd", 0));
-    flipNHeads(2);
+    flipNHeads(4);
     clock();
   }
 
@@ -20,7 +21,7 @@ public class Main {
   public static void flipNHeads(int n) {
     int headcount = 0;
     int flips = 0;
-    while (headcount != n) {
+    while (headcount < n) {
       double coin = Math.random();
       boolean heads = coin > 0.5;
       flips++;
@@ -38,6 +39,16 @@ public class Main {
 
   public static void clock() {
     LocalDateTime now = LocalDateTime.now();
-    System.out.println(now);
+    Integer thisSecond = now.getSecond();
+    String rightNow = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+    System.out.println(rightNow);
+    while (true) {
+      LocalDateTime rightNowRightNow = LocalDateTime.now();
+      Integer rightThisSecond = rightNowRightNow.getSecond();
+      if (!rightThisSecond.equals(thisSecond)) {
+        String current = rightNowRightNow.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        System.out.println(current);
+      }
+    }
   }
 }
