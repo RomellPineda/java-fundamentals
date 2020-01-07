@@ -28,8 +28,8 @@ public class Main {
       String face = heads ? "heads" : "tails";
       if (heads) {
         headcount++;
-      } else if (headcount > 0) {
-        headcount--;
+      } else {
+        headcount = 0;
       }
       System.out.println(face);
     }
