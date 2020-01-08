@@ -11,4 +11,9 @@ public class LibraryTest {
         Library classUnderTest = new Library();
         assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
     }
+
+    @Test public void testRoll() {
+        int[] test = new int[3];
+        assertEquals(test.length, Library.roll(3).length);
+    }
 }
