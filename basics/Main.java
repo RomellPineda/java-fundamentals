@@ -1,5 +1,4 @@
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class Main {
   public static void main(String[] args) {
@@ -39,15 +38,21 @@ public class Main {
 
   public static void clock() {
     LocalDateTime now = LocalDateTime.now();
-    Integer thisSecond = now.getSecond();
-    String rightNow = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-    System.out.println(rightNow);
+    int hour = now.getHour();
+    int minute = now.getMinute();
+    int second = now.getSecond();
+    String yld = hour + ":" + minute + ":" + second;
+    System.out.println(yld);
+
     while (true) {
-      LocalDateTime rightNowRightNow = LocalDateTime.now();
-      Integer rightThisSecond = rightNowRightNow.getSecond();
-      if (!rightThisSecond.equals(thisSecond)) {
-        String current = rightNowRightNow.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-        System.out.println(current);
+      now = LocalDateTime.now();
+      if (now.getSecond() != second) {
+        hour = now.getHour();
+        minute = now.getMinute();
+        second = now.getSecond();
+
+        yld = hour + ":" + minute + ":" + second;
+        System.out.println(yld);
       }
     }
   }
