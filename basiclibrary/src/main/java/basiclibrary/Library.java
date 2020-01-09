@@ -11,7 +11,7 @@ public class Library {
     public static int[] roll(int n) {
         int[] yld = new int[n];
         for (int i = 0; i < n; i++) {
-            int rand = (int) Math.round(Math.random() * 6);
+            int rand = (int) Math.ceil(Math.random() * 6);
             yld[i] = rand;
         }
         return yld;

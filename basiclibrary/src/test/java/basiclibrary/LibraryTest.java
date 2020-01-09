@@ -13,7 +13,30 @@ public class LibraryTest {
     }
 
     @Test public void testRoll() {
-        int[] test = new int[3];
-        assertEquals(test.length, Library.roll(3).length);
+        int[] testArray = new int[3];
+        assertEquals(testArray.length, Library.roll(3).length);
     }
+
+    @Test public void testElementsInRoll() {
+        boolean yld = false;
+        int[] testArray = Library.roll(5);
+        for ( int num : testArray) {
+            if (num > 0 && num < 7) {
+                yld = true;
+            } else {
+                yld = false;
+                break;
+            }
+        }
+        assertTrue("passed", yld);
+    }
+
+    @Test public void testContainsDuplicates() {
+        int[] testArray = {1, 2, 3, 3};
+        int[] testArrayTwo = {5, 4, 3, 2, 1, 0};
+
+        assertEquals(true, Library.containsDuplicates(testArray));
+        assertEquals(false, Library.containsDuplicates(testArrayTwo));
+    }
+
 }
