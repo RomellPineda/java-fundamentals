@@ -3,6 +3,8 @@
  */
 package basiclibrary;
 
+import java.util.HashSet;
+
 public class Library {
     public boolean someLibraryMethod() {
         return true;
@@ -46,5 +48,38 @@ public class Library {
             }
         }
         return yld;
+    }
+
+    public static String analyzeWeather(int[][] data) {
+        int min = data[0][0];
+        int max = data[0][0];
+        HashSet<Integer> temps = new HashSet<>();
+        HashSet<String> why = new HashSet<>();
+
+        for (int[] week : data) {
+            for (int temp : week) {
+                if (temp < min) {
+                    min = temp;
+                }
+                if (temp > max) {
+                    max = temp;
+                }
+                temps.add(temp);
+            }
+        }
+
+        for (int i = min; i < max; i++) {
+            if (!temps.contains(i)) {
+                why.add(String.format("Never saw temperature: %d", i));
+            }
+        }
+
+        String high = "High: " + max;
+        String low = "Low: " + min;
+        String bigStr = "";
+        for (String str : why) {
+            bigStr += str;
+        }
+        return high + low;
     }
 }
