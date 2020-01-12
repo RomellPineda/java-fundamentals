@@ -87,7 +87,7 @@ public class Library {
         HashMap<String, Integer> results = new HashMap<>();
         for(String candidate : arr) {
             if (results.containsKey(candidate)) {
-                results.put(candidate, + 1);
+                results.put(candidate, results.get(candidate) + 1);
             } else {
                 results.put(candidate, 1);
             }
