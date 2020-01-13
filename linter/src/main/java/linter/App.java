@@ -3,6 +3,12 @@
  */
 package linter;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Scanner;
+
 public class App {
     public String getGreeting() {
         return "Hello world.";
@@ -10,5 +16,34 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+
+        Path gates = Paths.get("resources/gates.js");
+        System.out.println(makeJavaScript(gates));
     }
+
+    public static String makeJavaScript(Path file) {
+        String errors = "error Message: ";
+        String clear = "success";
+        boolean anyError = false;
+        Scanner fileScanner;
+
+        try {
+
+            fileScanner = new Scanner(new File(file.toUri()));
+            int currentLineNumber = 1;
+
+            while(fileScanner.hasNextLine()) {
+                String currentLine = fileScanner.nextLine();
+                if(!currentLine.endsWith(";")) {
+                    errors += "\n" + "line " + currentLineNumber + " missing semicolon";
+                    anyError = true;
+                }
+                currentLineNumber++;
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return anyError ? errors : clear;
+    }
+
 }
