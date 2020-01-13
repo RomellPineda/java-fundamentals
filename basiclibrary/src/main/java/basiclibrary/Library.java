@@ -3,9 +3,13 @@
  */
 package basiclibrary;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 
 public class Library {
+
     public boolean someLibraryMethod() {
         return true;
     }
@@ -32,7 +36,7 @@ public class Library {
     }
 
     public static double average(int[] arr) {
-        int sum = 0;
+        double sum = 0;
         for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
         }
@@ -54,7 +58,6 @@ public class Library {
         int min = data[0][0];
         int max = data[0][0];
         HashSet<Integer> temps = new HashSet<>();
-        HashSet<String> why = new HashSet<>();
 
         for (int[] week : data) {
             for (int temp : week) {
@@ -68,18 +71,30 @@ public class Library {
             }
         }
 
+        String yld = "High: " + max + "\n" + "Low: " + min;
+        String bigStr = "";
+
         for (int i = min; i < max; i++) {
             if (!temps.contains(i)) {
-                why.add(String.format("Never saw temperature: %d", i));
+                bigStr += "\n" + "Never saw temperature: " + i;
             }
         }
+        return yld + bigStr;
+    }
 
-        String high = "High: " + max;
-        String low = "Low: " + min;
-        String bigStr = "";
-        for (String str : why) {
-            bigStr += str;
+    public static String tally(List<String> arr) {
+        String incumbent = arr.get(0);
+        HashMap<String, Integer> results = new HashMap<>();
+        for(String candidate : arr) {
+            if (results.containsKey(candidate)) {
+                results.put(candidate, results.get(candidate) + 1);
+            } else {
+                results.put(candidate, 1);
+            }
+            if (results.get(candidate) > results.get(incumbent)) {
+                incumbent = candidate;
+            }
         }
-        return high + low;
+        return incumbent;
     }
 }
