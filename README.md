@@ -27,3 +27,16 @@ The containsDuplicates method returns true or false depending on whether an arra
 The average method accepts an array of integers and calculates and returns the average of all the values in the array.
 
 Given an array of arrays the lowestAverage method calculates the average value for each array and returns the array with the lowest average.
+
+### lab 03
+*Description*
+
+This lab builds on the previous two labs.
+
+*Methods*
+
+The analyzeWeather method returns an array of integers containing the lowest average weather of a given week.
+
+The tally method takes in votes and returns a string of the item with the most votes.
+
+The linter app scans through a file and returns whether the file contains any specified errors.
