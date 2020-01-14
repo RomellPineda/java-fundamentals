@@ -40,3 +40,14 @@ The analyzeWeather method returns an array of integers containing the lowest ave
 The tally method takes in votes and returns a string of the item with the most votes.
 
 The linter app scans through a file and returns whether the file contains any specified errors.
+
+### lab 06
+*Description*
+
+Practice creating Java classes.
+
+*Methods*
+
+Create a Restaurant class with name, stars, and price properties in addition to an addReview method that takes in a review and calculates a restaurant's rating.
+
+Create a Review class with a review body, author, and rating in addition to a toString method.
