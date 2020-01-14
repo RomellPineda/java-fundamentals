@@ -34,7 +34,7 @@ public class App {
 
             while(fileScanner.hasNextLine()) {
                 String currentLine = fileScanner.nextLine();
-                if(!currentLine.endsWith(";")) {
+                if(!currentLine.endsWith(";") && !currentLine.isEmpty() && !currentLine.startsWith("//") && !currentLine.contains("if") && !currentLine.contains("else") && !currentLine.endsWith("}") && !currentLine.endsWith("{")) {
                     errors += "\n" + "line " + currentLineNumber + " missing semicolon";
                     anyError = true;
                 }
