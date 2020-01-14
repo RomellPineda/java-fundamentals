@@ -15,7 +15,7 @@ public class LibraryTest {
     @Test public void testRestaurantInstance() {
         Restaurant newRestaurant = new Restaurant("fogo de chao");
 
-        String output = "restaurant: fogo de chao = 0 stars + 0 price";
+        String output = "restaurant: fogo de chao = 0.0 stars + 0 price";
         assertEquals(output, newRestaurant.toString());
     }
 
