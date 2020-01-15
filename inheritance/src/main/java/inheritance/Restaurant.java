@@ -2,39 +2,19 @@ package inheritance;
 
 import java.util.StringJoiner;
 
-public class Restaurant {
+public class Restaurant extends MoneyMaker {
 
-    public String name;
     public double stars;
     public int price;
-    public Review reviews;
 
-    public Restaurant(String name) {
-        this.name = name;
+    public Restaurant(String name, int price) {
+        super(name);
+        this.price = price;
     }
 
     public String toString() {
         String yld = "restaurant: " + this.name + " = " + this.stars + " stars" + " + " + this.price + " price";
         return yld;
-    }
-
-    static class Review {
-        public String body;
-        public String author;
-        public int stars;
-        public Review next;
-
-        public Review(String body, String author, int stars) {
-            this.body = body;
-            this.author = author;
-            this.stars = stars;
-            this.next = null;
-        }
-
-        public String toString() {
-            String yld = "review: " + "\n" + this.stars + " stars " + "\n" + this.body + " by " + this.author;
-            return yld;
-        }
     }
 
     public void addReview(Review newRev) {
