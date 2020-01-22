@@ -25,8 +25,15 @@ public class Theater extends MoneyMaker implements Updatable {
     }
 
     @Override
-    public void removeMovie(String movie) {
-        String[] movieList = this.allTheMovies.split(" -- ");
+    public void removeMovie(String removie) {
+        String marquee = this.allTheMovies;
+        String[] moviesArray = marquee.split(" -- ");
+        this.allTheMovies = "";
 
+        for (String m : moviesArray) {
+            if (!m.equals(removie)) {
+                this.addMovie(m);
+            }
+        }
     }
 }

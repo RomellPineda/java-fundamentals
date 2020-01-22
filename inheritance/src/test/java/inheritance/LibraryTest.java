@@ -34,46 +34,4 @@ public class LibraryTest {
         String output = "restaurant: fogo de chao = 2.5 stars + 4 price";
         assertEquals(output, newRestaurant.toString());
     }
-
-    @Test public void testShopInstance() {
-        Shop newShop = new Shop("Book Worm", "A book shop", 2);
-
-        String output = "This is a shop: Book Worm Description: A book shop Price Range: 2";
-        assertEquals(output, newShop.toString());
-    }
-
-    @Test public void testShopReview() {
-        Shop shop = new Shop("Some Shop", "yay capitalism", 3);
-        Review newReview = new Review("pricey", "average joe", 2);
-        shop.addReview(newReview);
-
-        Review runner = shop.reviews;
-        assertEquals("average joe", runner.author);
-    }
-
-    @Test public void testTheaterInstance() {
-        Theater newTheater = new Theater("AMC", "star wars");
-
-        String output = "This is a Theater: AMC Movies: star wars";
-        assertEquals(output, newTheater.toString());
-    }
-
-    @Test public void testMovieReview() {
-        Theater newTheater = new Theater("AMC", "star wars");
-        MovieReview movieReview = new MovieReview("just ok", "joe public", 3, "star wars");
-        newTheater.addReview(movieReview);
-
-        // Why did I have to cast newTheater?
-        MovieReview runner = (MovieReview) newTheater.reviews;
-        String output = "star wars";
-        assertEquals(output, runner.movie);
-    }
-
-    @Test public void testAddMovie() {
-        Theater amc = new Theater("AMC", "star wars");
-        amc.addMovie("ford v. ferrari");
-
-        String output = "This is a Theater: AMC Movies: star wars -- ford v. ferrari";
-        assertEquals(output, amc.toString());
-    }
 }
